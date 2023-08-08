@@ -1,5 +1,5 @@
 ---
-name: Feature request
+name: 기능 요구 사항
 about: Suggest an idea for this project
 title: ''
 labels: ''
