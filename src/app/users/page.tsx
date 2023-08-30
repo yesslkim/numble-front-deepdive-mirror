@@ -1,7 +1,9 @@
 'use client';
 
+import styled from 'styled-components';
+
 import { UsersCard } from '@/components/molecules';
-import { Flexbox } from '@/components/atoms';
+import { Button, Flexbox } from '@/components/atoms';
 
 import useQueryUsers from '@/hooks/useQueryUsers';
 
@@ -9,6 +11,10 @@ import { BOTTOM_NAV_HEIGHT, TOPBAR_HEIGHT } from '@/constants/theme';
 
 function Users() {
   const { data } = useQueryUsers();
+
+  const handleClick = () => {
+    window.scrollTo(0, document.body.scrollHeight);
+  }
 
   if (!data) return;
 
@@ -34,8 +40,17 @@ function Users() {
           birthDate={user.birthDate}
         />
       ))}
+      <GoToBottom onClick={handleClick}>go to bottom</GoToBottom>
     </Flexbox>
   );
 }
+
+const GoToBottom = styled(Button)`
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background: green;
+  padding: 10px;
+`
 
 export default Users;
