@@ -31,6 +31,7 @@ function Users() {
           email={user.email}
           username={user.username}
           image={user.image}
+          birthDate={user.birthDate}
         />
       ))}
     </Flexbox>

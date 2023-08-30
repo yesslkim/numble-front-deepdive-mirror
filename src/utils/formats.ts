@@ -18,7 +18,7 @@ function parseToDashPhoneNumber(value: string) {
   return value;
 }
 
-function parserDateFormat(newDate: Date, option: '-' | '/') {
+function parserDateFormat(newDate: string, option: '-' | '/') {
   const date = new Date(newDate);
 
   const year = date.getFullYear();

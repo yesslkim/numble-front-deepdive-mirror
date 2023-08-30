@@ -9,6 +9,9 @@ import QueryProvider from '@/providers/QueryProvider';
 import StyledComponentsRegistry from '@/lib/styledComponentRegistry';
 
 import './globals.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const inter = Inter({
   subsets: ['latin']

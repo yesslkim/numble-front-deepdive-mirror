@@ -5,8 +5,7 @@ const nextConfig = {
   },
   images: {
     domains: [
-      'i.dummyjson.com',
-      'robohash.org'
+      'i.dummyjson.com'
     ]
   }
 }

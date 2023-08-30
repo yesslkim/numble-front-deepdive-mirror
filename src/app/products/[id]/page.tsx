@@ -1,7 +1,7 @@
 'use client';
 import { Products } from '@/types/products';
 
-import type { ChangeEvent } from 'react';
+import type { ChangeEvent, MouseEvent } from 'react';
 import { useState } from 'react';
 
 import { useParams } from 'next/navigation';
@@ -11,6 +11,8 @@ import { styled } from 'styled-components';
 
 import { useMutation } from '@tanstack/react-query';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import { Button, Flexbox, Typography } from '@/components/atoms';
 
 import useQueryProductDetail from '@/hooks/useQueryProductDetail';
@@ -18,6 +20,7 @@ import useQueryProductDetail from '@/hooks/useQueryProductDetail';
 import formats from '@/utils/formats';
 import { putEditProduct } from '@/api/products';
 
+import { TOPBAR_HEIGHT } from '@/constants/theme';
 import { NEXT_IMAGE_BLUR_URL } from '@/constants/products';
 
 function ProductDetail() {
@@ -69,25 +72,44 @@ function ProductDetail() {
     setPrice(Number(onlyNumber));
   };
 
+  const handleClickViewDetail = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation(); 
+    alert('이미지 상세보기')
+  }
+
   if (!data) return;
 
   return (
-    <Flexbox
-      direction="column"
+    <div
       style={{
-        height: '100dvh'
+        height: '100dvh',
+        paddingTop: TOPBAR_HEIGHT
       }}
     >
-      <ImageWrap>
-        <Image
-          src={editData?.thumbnail || data.thumbnail || ''}
-          alt="image"
-          layout="fill"
-          objectFit="cover"
-          placeholder="blur"
-          blurDataURL={NEXT_IMAGE_BLUR_URL}
-        />
-      </ImageWrap>
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        onClick={(swiper) => { swiper.slideNext(); }}
+        loop={true}
+      >
+        {(editData?.images || data.images || []).map(url => (
+          <SwiperSlide key={`thumbnail-image-${url}`}>
+            <ImageWrap>
+              <Image
+                src={url}
+                alt="image"
+                layout="fill"
+                objectFit="cover"
+                placeholder="blur"
+                blurDataURL={NEXT_IMAGE_BLUR_URL}
+              />
+              <Button onClick={handleClickViewDetail} style={{
+                position: 'absolute', bottom: 0, left: 0 
+                }}>이미지 상세보기</Button>
+            </ImageWrap>
+          </SwiperSlide>
+        ))}
+      </Swiper>
       <ProductDetailInfo>
         {isEdit ? (
           <>
@@ -151,7 +173,7 @@ function ProductDetail() {
       >
         {isEdit ? '완료' : '수정'}
       </Button>
-    </Flexbox>
+    </div>
   );
 }
 

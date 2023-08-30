@@ -9,6 +9,8 @@ import { MdMoreVert } from 'react-icons/md';
 
 import { Flexbox, Typography } from '@/components/atoms';
 
+import formats from '@/utils/formats';
+
 import { brandColor } from '@/constants/theme';
 import { NEXT_IMAGE_BLUR_URL } from '@/constants/products';
 
@@ -20,7 +22,8 @@ function UsersCard({
   gender,
   email,
   username,
-  image
+  image,
+  birthDate
 }: Users) {
   const router = useRouter();
   return (
@@ -45,6 +48,9 @@ function UsersCard({
         <Typography>gender: {gender}</Typography>
         <Typography>age: {age}</Typography>
         <Typography>emale: {email}</Typography>
+        <Typography>
+          birthDate: {formats.parserDateFormat(`${birthDate} 00:00:00`, '/')}
+        </Typography>
       </Flexbox>
       <MoreStyle>
         <MdMoreVert />

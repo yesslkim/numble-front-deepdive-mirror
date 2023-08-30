@@ -29,11 +29,3 @@ function UserTodosList() {
 }
 
 export default UserTodosList;
-
-/**
- * 1. 순환참조 이슈
- * 2. 스크롤 관성 이슈 IOS
- * 3. 이벤트 전파 이슈
- * 4. 날짜 표현 이슈
- *
- */

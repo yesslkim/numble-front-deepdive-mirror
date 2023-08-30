@@ -13,6 +13,7 @@ export type Users = {
   email: string;
   username: string;
   image: string;
+  birthDate: string;
 };
 
 export type UserCarts = CommonFetchType & {

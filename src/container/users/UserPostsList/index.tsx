@@ -12,7 +12,7 @@ function UserCartsList() {
 
   const { data: userPostsData } = useQueryUserPosts(id);
 
-  if (!userPostsData?.total) return false;
+  if (!userPostsData?.total) return null;
 
   return (
     <Flexbox
