@@ -34,6 +34,9 @@ Dummy JSON 데이터를 바탕으로 만들어진 이커머스 서비스 입니�
 - types: 각종 타입을 정의합니다.
 - utils: 유틸성 함수를 정의합니다.
 
+## 추가 가이드
+- PR 과 커밋내용에 따라서 추가내용 요청이나 일부 코멘트가 달릴 수 있습니다.
+
 ### 참고자료
 
 - [Javascript Error Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors)
