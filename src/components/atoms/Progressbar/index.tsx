@@ -10,7 +10,7 @@ function Progressbar() {
   const handleScroll = () => {
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
     const browserHeight = scrollHeight - clientHeight;
-    const updatedWidth = (scrollTop / browserHeight) * 100;
+    const updatedWidth = scrollTop / browserHeight;
 
     setWidth(updatedWidth);
   };
