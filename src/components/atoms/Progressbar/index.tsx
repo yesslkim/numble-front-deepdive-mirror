@@ -1,11 +1,28 @@
+import { useEffect, useState } from 'react';
+
 import { styled } from 'styled-components';
 
 import { TOPBAR_HEIGHT } from '@/constants/theme';
 
 function Progressbar() {
+  const [width, setWidth] = useState(0);
+
+  const handleScroll = () => {
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+    const browserHeight = scrollHeight - clientHeight;
+    const updatedWidth = (scrollTop / browserHeight) * 100;
+
+    setWidth(updatedWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <Wrap>
-      <ProgressbarStyled />
+      <ProgressbarStyled $percentage={width} />
     </Wrap>
   );
 }
@@ -20,23 +37,11 @@ const Wrap = styled.div`
   z-index: 10;
 `;
 
-const ProgressbarStyled = styled.div`
-  animation: grow-progress auto linear forwards;
-  animation-timeline: scroll(block root);
+const ProgressbarStyled = styled.div<{ $percentage: number }>`
   background: red;
-  width: 100%;
+  transform: scaleX(${(props) => props.$percentage});
+  transform-origin: center left;
   height: 10px;
-  transform-origin: 0 50%;
-  transform: scaleX(0);
-
-  @keyframes grow-progress {
-    from {
-      transform: scaleX(0);
-    }
-    to {
-      transform: scaleX(1);
-    }
-  }
 `;
 
 export default Progressbar;
