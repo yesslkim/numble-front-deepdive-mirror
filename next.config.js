@@ -4,10 +4,17 @@ const nextConfig = {
     NEXT_PUBLIC_BASE_API: process.env.NEXT_PUBLIC_BASE_API
   },
   images: {
-    domains: [
-      'i.dummyjson.com'
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.dummyjson.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'robohash.org'
+      }
     ]
   }
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
