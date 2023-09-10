@@ -73,9 +73,9 @@ function ProductDetail() {
   };
 
   const handleClickViewDetail = (e: MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation(); 
-    alert('이미지 상세보기')
-  }
+    e.stopPropagation();
+    alert('이미지 상세보기');
+  };
 
   if (!data) return;
 
@@ -89,10 +89,12 @@ function ProductDetail() {
       <Swiper
         spaceBetween={50}
         slidesPerView={1}
-        onClick={(swiper) => { swiper.slideNext(); }}
+        onClick={(swiper) => {
+          swiper.slideNext();
+        }}
         loop={true}
       >
-        {(editData?.images || data.images || []).map(url => (
+        {(editData?.images || data.images || []).map((url) => (
           <SwiperSlide key={`thumbnail-image-${url}`}>
             <ImageWrap>
               <Image
@@ -103,9 +105,19 @@ function ProductDetail() {
                 placeholder="blur"
                 blurDataURL={NEXT_IMAGE_BLUR_URL}
               />
-              <Button onClick={handleClickViewDetail} style={{
-                position: 'absolute', bottom: 0, left: 0 
-                }}>이미지 상세보기</Button>
+              <Button
+                onClick={handleClickViewDetail}
+                style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0
+                }}
+                variant="filled"
+                color="white"
+                size="large"
+              >
+                이미지 상세보기
+              </Button>
             </ImageWrap>
           </SwiperSlide>
         ))}
