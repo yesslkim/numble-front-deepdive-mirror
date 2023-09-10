@@ -3,12 +3,14 @@ import type { Color, Radius, Size, SpacingStyle } from '@/types/styleTheme';
 import { forwardRef } from 'react';
 import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 
-import { styled } from 'styled-components';
+import { styled, css } from 'styled-components';
+
+type Variant = 'filled' | 'outlined' | 'text';
 
 interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     SpacingStyle {
-  variant?: 'filled' | 'outlined' | 'text';
+  variant?: Variant;
   color?: Color;
   size?: Size;
   fullWidth?: boolean;
@@ -35,6 +37,80 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(
   }
 );
 
-const ButtonStyled = styled.button<ButtonProps>``;
+const sizeStyles = css<ButtonProps>`
+  ${(props) =>
+    props.size === 'small' &&
+    css`
+      padding: 6px;
+      font-size: 12px;
+    `}
+
+  ${(props) =>
+    props.size === 'large' &&
+    css`
+      padding: 8px;
+      font-size: 14px;
+    `}
+
+    ${(props) =>
+    props.size === 'xlarge' &&
+    css`
+      padding: 10px;
+      font-size: 16px;
+    `}
+`;
+
+const getColorStyles = (color?: Color, theme?: Variant) => {
+  let mainColor;
+  let subColor;
+
+  switch (color) {
+    case 'white':
+    case 'green':
+    case 'success':
+      mainColor = color;
+      subColor = '#000';
+      break;
+    case 'black':
+    case 'grey':
+    case 'red':
+    case 'blue':
+    case 'error':
+      mainColor = color;
+      subColor = '#fff';
+      break;
+    default:
+      mainColor = '#000';
+      subColor = '#fff';
+  }
+
+  if (!theme || theme === 'filled') {
+    return css`
+      background-color: ${mainColor};
+      color: ${subColor};
+    `;
+  }
+
+  if (theme === 'outlined') {
+    return css`
+      border-radius: 1px solid ${mainColor};
+      color: ${mainColor};
+    `;
+  }
+
+  if (theme === 'text') {
+    return css`
+      background-color: transparent;
+      color: ${mainColor};
+    `;
+  }
+};
+
+const ButtonStyled = styled.button<ButtonProps>`
+  width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
+  border: none;
+  ${sizeStyles};
+  ${({ color, variant }) => getColorStyles(color, variant)};
+`;
 
 export default Button;
