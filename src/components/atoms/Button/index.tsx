@@ -5,6 +5,8 @@ import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 
 import { styled, css } from 'styled-components';
 
+import { brandColor } from '@/constants/theme';
+
 type Variant = 'filled' | 'outlined' | 'text';
 
 interface ButtonProps
@@ -69,7 +71,7 @@ const getColorStyles = (color?: Color, theme?: Variant) => {
     case 'green':
     case 'success':
       mainColor = color;
-      subColor = '#000';
+      subColor = brandColor.black;
       break;
     case 'black':
     case 'grey':
@@ -77,11 +79,11 @@ const getColorStyles = (color?: Color, theme?: Variant) => {
     case 'blue':
     case 'error':
       mainColor = color;
-      subColor = '#fff';
+      subColor = brandColor.white;
       break;
     default:
-      mainColor = '#000';
-      subColor = '#fff';
+      mainColor = brandColor.black;
+      subColor = brandColor.white;
   }
 
   if (!theme || theme === 'filled') {
