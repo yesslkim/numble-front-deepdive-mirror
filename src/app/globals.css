@@ -27,3 +27,9 @@ ul {
 input:focus {
   outline: none;
 }
+
+input,
+select,
+textarea {
+  font-size: 16px;
+}
