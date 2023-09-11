@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 
 import { styled } from 'styled-components';
 
-import { BsArrowLeftCircle } from 'react-icons/bs';
+import { FiArrowLeftCircle } from '@react-icons/all-files/fi/FiArrowLeftCircle';
 
 import { Typography } from '@/components/atoms';
 
@@ -12,7 +12,7 @@ function Topbar() {
   return (
     <Wrap>
       <Typography variant="h3" color="white" onClick={() => router.back()}>
-        <BsArrowLeftCircle />
+        <FiArrowLeftCircle />
       </Typography>
     </Wrap>
   );
