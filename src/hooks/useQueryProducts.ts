@@ -4,6 +4,10 @@ import { fetchProducts } from '@/api/products';
 
 import queryKeys from '@/constants/queryKeys';
 
+const TOTAL_PRODUCTS = 100;
+const TOTAL_PRODUCTS_PER_PAGE = 20;
+const TOTAL_PAGE = TOTAL_PRODUCTS / TOTAL_PRODUCTS_PER_PAGE;
+
 function useQueryProducts() {
   const queryClient = useQueryClient();
 
@@ -12,7 +16,9 @@ function useQueryProducts() {
     fetchProducts,
     {
       getNextPageParam: (lastPage, allPages) => {
-        return allPages.length < 5 && allPages.length * 20;
+        return allPages.length < TOTAL_PAGE
+          ? allPages.length * TOTAL_PRODUCTS_PER_PAGE
+          : undefined;
       }
     }
   );
