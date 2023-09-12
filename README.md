@@ -6,6 +6,11 @@ npm run dev
 npm run storybook
 ```
 
+## 결과물
+
+- 결과물 링크 : https://numble-front-deepdive-ys.vercel.app/
+- 결과물 브랜치 : `develop`
+
 ## 프로젝트 설명
 
 Dummy JSON 데이터를 바탕으로 만들어진 이커머스 서비스 입니다.  
@@ -35,6 +40,7 @@ Dummy JSON 데이터를 바탕으로 만들어진 이커머스 서비스 입니�
 - utils: 유틸성 함수를 정의합니다.
 
 ## 추가 가이드
+
 - PR 과 커밋내용에 따라서 추가내용 요청이나 일부 코멘트가 달릴 수 있습니다.
 
 ### 참고자료
