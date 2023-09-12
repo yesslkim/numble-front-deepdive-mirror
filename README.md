@@ -1,3 +1,8 @@
+## 결과물
+
+- 결과물 링크 : https://numble-front-deepdive-ys.vercel.app/
+- 결과물 브랜치 : `develop`
+
 ```bash
 npm install
 
@@ -5,11 +10,6 @@ npm run dev
 
 npm run storybook
 ```
-
-## 결과물
-
-- 결과물 링크 : https://numble-front-deepdive-ys.vercel.app/
-- 결과물 브랜치 : `develop`
 
 ## 프로젝트 설명
 
