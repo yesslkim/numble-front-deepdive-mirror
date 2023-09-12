@@ -99,7 +99,7 @@ const getColorStyles = (color?: Color, theme?: Variant) => {
 
   if (theme === 'outlined') {
     return css`
-      border-radius: 1px solid ${mainColor};
+      border: 1px solid ${mainColor};
       color: ${mainColor};
     `;
   }
@@ -115,6 +115,7 @@ const getColorStyles = (color?: Color, theme?: Variant) => {
 const ButtonStyled = styled.button<ButtonProps>`
   width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
   border: none;
+  border-radius: ${(props) => props.radius};
   ${sizeStyles};
   ${({ color, variant }) => getColorStyles(color, variant)};
 
