@@ -5,9 +5,12 @@ import Link from 'next/link';
 
 import { styled } from 'styled-components';
 
-import { HiUsers, HiOutlineUsers } from 'react-icons/hi';
-import { BsGrid, BsGridFill } from 'react-icons/bs';
-import { AiOutlineHome, AiFillHome } from 'react-icons/ai';
+import { HiUsers } from '@react-icons/all-files/hi/HiUsers';
+import { HiOutlineUsers } from '@react-icons/all-files/hi/HiOutlineUsers';
+import { BsGridFill } from '@react-icons/all-files/bs/BsGridFill';
+import { BsGrid } from '@react-icons/all-files/bs/BsGrid';
+import { AiOutlineHome } from '@react-icons/all-files/ai/AiOutlineHome';
+import { AiFillHome } from '@react-icons/all-files/ai/AiFillHome';
 
 import { Flexbox, Typography } from '@/components/atoms';
 

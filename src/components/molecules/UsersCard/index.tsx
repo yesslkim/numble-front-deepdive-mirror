@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import { styled } from 'styled-components';
 
-import { MdMoreVert } from 'react-icons/md';
+import { MdMoreVert } from '@react-icons/all-files/md/MdMoreVert';
 
 import { Flexbox, Typography } from '@/components/atoms';
 
