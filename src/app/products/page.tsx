@@ -3,6 +3,7 @@ import { dehydrate } from '@tanstack/react-query';
 import Hydrate from '@/components/hydrate-client';
 
 import getQueryClient from '@/utils/getQueryClient';
+
 import { fetchProducts } from '@/api/products';
 
 import ProductsList from './ProductsList';

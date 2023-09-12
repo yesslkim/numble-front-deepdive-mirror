@@ -9,6 +9,8 @@ import styled from 'styled-components';
 
 import { Flexbox, Typography } from '@/components/atoms';
 
+import { UserCartsList, UserPostsList, UserTodosList } from '@/container/users';
+
 import useQueryUserTodos from '@/hooks/useQueryUserTodos';
 import useQueryUserPosts from '@/hooks/useQueryUserPosts';
 import useQueryUserDetail from '@/hooks/useQueryUserDetail';
@@ -16,8 +18,6 @@ import useQueryUserCarts from '@/hooks/useQueryUserCarts';
 
 import { TOPBAR_HEIGHT } from '@/constants/theme';
 import { NEXT_IMAGE_BLUR_URL } from '@/constants/products';
-
-import { UserCartsList, UserPostsList, UserTodosList } from '@/container/users';
 
 function UserDetail() {
   const params = useParams();

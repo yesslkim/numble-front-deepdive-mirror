@@ -85,8 +85,8 @@
             "position": "before"
           },
           {
-            "pattern": "@/constants/**",
-            "group": "object",
+            "pattern": "@/container/**",
+            "group": "internal",
             "position": "before"
           },
           {
@@ -100,8 +100,23 @@
             "position": "before"
           },
           {
+            "pattern": "@/utils/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/api/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
             "pattern": "@/types/**",
             "group": "type",
+            "position": "before"
+          },
+          {
+            "pattern": "@/constants/**",
+            "group": "object",
             "position": "before"
           }
         ]
