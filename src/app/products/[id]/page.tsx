@@ -13,15 +13,17 @@ import { useMutation } from '@tanstack/react-query';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { BiMessageAdd } from '@react-icons/all-files/bi/BiMessageAdd';
+
 import { Button, Flexbox, Typography } from '@/components/atoms';
 
 import useQueryProductDetail from '@/hooks/useQueryProductDetail';
 
-import formats from '@/utils/formats';
-import { putEditProduct } from '@/api/products';
-
 import { TOPBAR_HEIGHT } from '@/constants/theme';
 import { NEXT_IMAGE_BLUR_URL } from '@/constants/products';
+
+import formats from '@/utils/formats';
+import { putEditProduct } from '@/api/products';
 
 function ProductDetail() {
   const params = useParams();
@@ -115,6 +117,7 @@ function ProductDetail() {
                 variant="filled"
                 color="white"
                 size="large"
+                endIcon={<BiMessageAdd />}
               >
                 이미지 상세보기
               </Button>

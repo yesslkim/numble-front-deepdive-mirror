@@ -17,6 +17,8 @@ interface ButtonProps
   size?: Size;
   fullWidth?: boolean;
   radius?: Radius;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
 }
 
 const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(
@@ -33,7 +35,9 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(
         radius={radius}
         {...other}
       >
+        {props.startIcon}
         {children}
+        {props.endIcon}
       </ButtonStyled>
     );
   }
@@ -113,6 +117,10 @@ const ButtonStyled = styled.button<ButtonProps>`
   border: none;
   ${sizeStyles};
   ${({ color, variant }) => getColorStyles(color, variant)};
+
+  svg {
+    margin: 0 4px;
+  }
 `;
 
 export default Button;
