@@ -49,7 +49,7 @@ function UsersCard({
         <Typography>age: {age}</Typography>
         <Typography>emale: {email}</Typography>
         <Typography>
-          birthDate: {formats.parserDateFormat(`${birthDate} 00:00:00`, '/')}
+          birthDate: {formats.parserDateFormat(`${birthDate}T00:00:00`, '/')}
         </Typography>
       </Flexbox>
       <MoreStyle>
