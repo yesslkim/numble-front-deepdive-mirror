@@ -14,10 +14,10 @@ import useQueryUserPosts from '@/hooks/useQueryUserPosts';
 import useQueryUserDetail from '@/hooks/useQueryUserDetail';
 import useQueryUserCarts from '@/hooks/useQueryUserCarts';
 
-import { UserCartsList, UserPostsList, UserTodosList } from '@/container/users';
-
 import { TOPBAR_HEIGHT } from '@/constants/theme';
 import { NEXT_IMAGE_BLUR_URL } from '@/constants/products';
+
+import { UserCartsList, UserPostsList, UserTodosList } from '@/container/users';
 
 function UserDetail() {
   const params = useParams();

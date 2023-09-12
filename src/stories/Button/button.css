@@ -1,0 +1,66 @@
+button {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn-size-small {
+  padding: 6px;
+  font-size: 12px;
+}
+
+.btn-size-large {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.btn-size-xlarge {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.btn-fullWidth {
+  width: 100%;
+}
+
+.btn-radius-4 {
+  border-radius: 4px;
+}
+
+.btn-radius-8 {
+  border-radius: 8px;
+}
+
+.btn-radius-12 {
+  border-radius: 12px;
+}
+
+.btn-radius-16 {
+  border-radius: 16px;
+}
+
+i {
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  z-index: 999;
+}
+
+.icon-start {
+  margin-right: 4px;
+}
+
+.icon-end {
+  margin-left: 4px;
+}
+
+.IconHome {
+  background: url('../assets/github.svg') center center / 100% auto no-repeat;
+}
+
+.IconUser {
+  background: url('../assets/icon-user.png') center center / 100% auto no-repeat;
+}
