@@ -11,6 +11,7 @@ import { styled } from 'styled-components';
 
 import { useMutation } from '@tanstack/react-query';
 
+import { Swiper as SwiperType } from 'swiper/types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { BiMessageAdd } from '@react-icons/all-files/bi/BiMessageAdd';
 
@@ -79,6 +80,15 @@ function ProductDetail() {
     alert('이미지 상세보기');
   };
 
+  const handleSlide = (
+    swiper: SwiperType,
+    e: globalThis.MouseEvent | TouchEvent | PointerEvent
+  ) => {
+    const target = e.target as HTMLElement;
+    if (target.tagName === 'BUTTON') return;
+    swiper.slideNext();
+  };
+
   if (!data) return;
 
   return (
@@ -91,9 +101,7 @@ function ProductDetail() {
       <Swiper
         spaceBetween={50}
         slidesPerView={1}
-        onClick={(swiper) => {
-          swiper.slideNext();
-        }}
+        onClick={handleSlide}
         loop={true}
       >
         {(editData?.images || data.images || []).map((url) => (
@@ -180,7 +188,6 @@ function ProductDetail() {
         )}
       </ProductDetailInfo>
       <Button
-        fullWidth
         size="large"
         variant="filled"
         mt="auto"
